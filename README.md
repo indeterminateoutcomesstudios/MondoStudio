@@ -1,5 +1,7 @@
 # MondoStudio
 
+[![Build Status](https://travis-ci.org/MondoStudio/MondoStudio.svg?branch=master)](https://travis-ci.org/MondoStudio/MondoStudio)
+
 For RPG passionates and for whom has great ideas to develop a roll-playing game,
 who has no idea how to develop a game and still looking for way to do that,
 MondoStudio is an online Roll-playing game creator that has a simple web interface to
