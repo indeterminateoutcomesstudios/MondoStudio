@@ -7,8 +7,8 @@ describe('mondo-studio App', function() {
     page = new MondoStudioPage();
   });
 
-  it('should display message saying app works', () => {
+  it(`should display toolbar with heading saying 'MondoStudio'`, () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('MondoStudio');
   });
 });
