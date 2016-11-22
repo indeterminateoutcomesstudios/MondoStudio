@@ -20,6 +20,14 @@ Follow these steps to install:
 
     git clone https://github.com/MondoStudio/MondoStudio.git
     cd MondoStudio
+
+Update [Firebase Credentials](https://firebase.google.com/docs/web/setup#add_firebase_to_your_app):
+
+    bin/firebase-credentials.sh
+
+This command will ask you to input few information about your firebase web app credentials.
+After inserting all needed keys, run the following command to continue the setup:
+
     npm install
 
 ### Server

@@ -1,0 +1,14 @@
+import { AuthProviders, AuthMethods } from 'angularfire2';
+
+export const firebaseConfig = {
+  apiKey: '<FIREBASE_API_KEY>',
+  authDomain: '<FIREBASE_PROJECT_ID>.firebaseapp.com',
+  databaseURL: 'https://<FIREBASE_DATABASE_NAME>.firebaseio.com',
+  storageBucket: '<FIREBASE_BUCKET>.appspot.com',
+  messagingSenderId: '<FIREBASE_SENDER_ID>'
+};
+
+export const authConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Redirect
+}
