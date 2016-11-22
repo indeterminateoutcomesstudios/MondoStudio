@@ -6,7 +6,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from './core/toolbar/toolbar.component';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 describe('App: MondoStudio', () => {
   beforeEach(() => {
@@ -18,7 +18,7 @@ describe('App: MondoStudio', () => {
       imports: [
         RouterModule.forRoot([])
       ],
-      providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+      providers: [{ provide: APP_BASE_HREF, useValue : '/' }]
     });
   });
 
