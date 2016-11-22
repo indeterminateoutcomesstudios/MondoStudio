@@ -1,8 +1,25 @@
 #!/usr/bin/env bash
 
+FILENAME="firebase-config.ts"
+
 BASEDIR=$(dirname "$0")
-TEMPLATE="$BASEDIR/../src/firebase-config.ts.template"
-LOCAL="$BASEDIR/../src/firebase-config.ts"
+TEMPLATE="$BASEDIR/../src/$FILENAME.template"
+LOCAL="$BASEDIR/../src/$FILENAME"
+
+FIREBASE_API_KEY=""
+FIREBASE_PROJECT_ID=""
+FIREBASE_DATABASE_NAME=""
+FIREBASE_BUCKET=""
+FIREBASE_SENDER_ID=""
+
+print_file() {
+  cat $TEMPLATE \
+      |sed "s|\<FIREBASE_API_KEY\>|$FIREBASE_API_KEY|g" \
+      |sed "s|\<FIREBASE_PROJECT_ID\>|$FIREBASE_PROJECT_ID|g" \
+      |sed "s|\<FIREBASE_DATABASE_NAME\>|$FIREBASE_DATABASE_NAME|g" \
+      |sed "s|\<FIREBASE_BUCKET\>|$FIREBASE_BUCKET|g" \
+      |sed "s|\<FIREBASE_SENDER_ID\>|$FIREBASE_SENDER_ID|g";
+}
 
 read_attrs() { 
   echo -n "API_KEY: ";
@@ -17,12 +34,7 @@ read_attrs() {
   read FIREBASE_SENDER_ID;
 
   echo -e "\n== BEGIN: firebase-config.ts ================\n"
-  cat $TEMPLATE \
-      |sed "s|\<FIREBASE_API_KEY\>|$FIREBASE_API_KEY|g" \
-      |sed "s|\<FIREBASE_PROJECT_ID\>|$FIREBASE_PROJECT_ID|g" \
-      |sed "s|\<FIREBASE_DATABASE_NAME\>|$FIREBASE_DATABASE_NAME|g" \
-      |sed "s|\<FIREBASE_BUCKET\>|$FIREBASE_BUCKET|g" \
-      |sed "s|\<FIREBASE_SENDER_ID\>|$FIREBASE_SENDER_ID|g";
+  print_file
   echo -e "\n== END: firebase-config.ts ==================\n"
 
   echo -n "Is everything alright? (Y/n): ";
@@ -32,12 +44,8 @@ read_attrs() {
   fi
 
   if [[ "$(echo $OPT|tr [:lower:] [:upper:])" == "Y" ]]; then
-    cat $TEMPLATE \
-      |sed "s|\<FIREBASE_API_KEY\>|$FIREBASE_API_KEY|g" \
-      |sed "s|\<FIREBASE_PROJECT_ID\>|$FIREBASE_PROJECT_ID|g" \
-      |sed "s|\<FIREBASE_DATABASE_NAME\>|$FIREBASE_DATABASE_NAME|g" \
-      |sed "s|\<FIREBASE_BUCKET\>|$FIREBASE_BUCKET|g" \
-      |sed "s|\<FIREBASE_SENDER_ID\>|$FIREBASE_SENDER_ID|g" > $LOCAL;
+    print_file > $LOCAL;
+    echo "$FILENAME was successfully generated."
   else
     echo -n "Do you want to try again? (Y/n): ";
     read OPT2;
@@ -53,6 +61,15 @@ read_attrs() {
 }
 
 if [ -f $TEMPLATE ]; then
-  read_attrs;
-  echo "The End";
+  if [[ ! -z "$1" ]] && [[ ! -z "$2" ]] && [[ ! -z "$3" ]]; then
+    FIREBASE_API_KEY=$2
+    FIREBASE_PROJECT_ID=$1
+    FIREBASE_DATABASE_NAME=$1
+    FIREBASE_BUCKET=$1
+    FIREBASE_SENDER_ID=$3
+    print_file > $LOCAL
+    echo "$FILENAME was successfully generated."
+  else
+    read_attrs;
+  fi
 fi

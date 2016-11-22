@@ -25,6 +25,10 @@ Update [Firebase Credentials](https://firebase.google.com/docs/web/setup#add_fir
 
     bin/firebase-credentials.sh
 
+There is a promptless way to generate the Firebase Credentials config:
+
+    bin/firebase-credentials.sh <PROJECT_ID> <API_KEY> <SENDER_ID>
+
 This command will ask you to input few information about your firebase web app credentials.
 After inserting all needed keys, run the following command to continue the setup:
 

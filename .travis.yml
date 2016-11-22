@@ -22,6 +22,7 @@ before_script:
   - npm install -g reflect-metadata
   - npm install -g angular-cli
   - npm install -g karma
+  - bin/firebase-credentials.sh $FIREBASE_APP_NAME $FIREBASE_API_KEY $FIREBASE_SENDER_ID
   - npm install
   - ng build
 
