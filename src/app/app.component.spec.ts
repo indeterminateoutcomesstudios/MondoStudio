@@ -1,14 +1,24 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
+
+import { APP_BASE_HREF } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
+import { ToolbarComponent } from './core/toolbar/toolbar.component';
 
 describe('App: MondoStudio', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
+        ToolbarComponent,
         AppComponent
       ],
+      imports: [
+        RouterModule.forRoot([])
+      ],
+      providers: [{provide: APP_BASE_HREF, useValue : '/' }]
     });
   });
 
@@ -18,16 +28,9 @@ describe('App: MondoStudio', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'Hello World'`, async(() => {
+  it(`should have as title 'MondoStudio'`, async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Hello World');
-  }));
-
-  it('should render title in a h1 tag', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Hello World');
+    expect(app.title).toEqual('MondoStudio');
   }));
 });
