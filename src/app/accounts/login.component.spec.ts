@@ -2,7 +2,11 @@
 
 import { TestBed, async } from '@angular/core/testing';
 
+import { AngularFire } from 'angularfire2';
+
 import { LoginComponent } from './login.component';
+
+class MockAngularFire { }
 
 describe('Accounts: Login', () => {
 
@@ -10,17 +14,19 @@ describe('Accounts: Login', () => {
     TestBed.configureTestingModule({
       declarations: [
         LoginComponent
+      ],
+      providers: [
+        { provide: AngularFire, useClass: MockAngularFire }
       ]
     });
   });
 
-  it(`should render a form with email and password`, async(() => {
+  it(`should render a button to sign in with Google`, async(() => {
     let fixture = TestBed.createComponent(LoginComponent);
     fixture.detectChanges();
 
     let compiled = fixture.debugElement.nativeElement;
 
-    expect(compiled.querySelector('form input[name=email]')).toBeDefined();
-    expect(compiled.querySelector('form input[name=password]')).toBeDefined();
+    expect(compiled.querySelector('button').textContent).toContain('Sign in with Google');
   }));
 });

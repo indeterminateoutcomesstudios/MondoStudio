@@ -3,11 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AngularFireModule } from 'angularfire2';
 import { HomeModule } from '../../home/home.module';
-import { AccountsModule } from '../../accounts/accounts.module';
+import { AccountsModule } from '../../accounts';
 
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { AppComponent } from './app.component';
+
+import { firebaseConfig, authConfig } from '../../../firebase-config';
 
 @NgModule({
   declarations: [
@@ -19,9 +22,9 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule,
     HomeModule,
-    AccountsModule
+    AccountsModule,
+    AngularFireModule.initializeApp(firebaseConfig, authConfig)
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
