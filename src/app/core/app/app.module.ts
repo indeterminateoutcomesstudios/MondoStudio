@@ -8,12 +8,14 @@ import { HomeModule } from '../../home/home.module';
 import { AccountsModule } from '../../accounts';
 
 import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { UserComponent } from '../toolbar/user.component';
 import { AppComponent } from './app.component';
 
 import { firebaseConfig, authConfig } from '../../../firebase-config';
 
 @NgModule({
   declarations: [
+    UserComponent,
     ToolbarComponent,
     AppComponent
   ],

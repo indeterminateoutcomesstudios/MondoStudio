@@ -2,12 +2,15 @@
 
 import { TestBed, async } from '@angular/core/testing';
 
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 import { ToolbarComponent } from './toolbar.component';
 
 describe('Core: Toolbar', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToolbarComponent ]
+      declarations: [ ToolbarComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     });
   });
 

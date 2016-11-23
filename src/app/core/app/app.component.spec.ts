@@ -2,23 +2,15 @@
 
 import { TestBed, async } from '@angular/core/testing';
 
-import { APP_BASE_HREF } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 describe('App: MondoStudio', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ToolbarComponent,
-        AppComponent
-      ],
-      imports: [
-        RouterModule.forRoot([])
-      ],
-      providers: [{ provide: APP_BASE_HREF, useValue : '/' }]
+      declarations: [ AppComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     });
   });
 
