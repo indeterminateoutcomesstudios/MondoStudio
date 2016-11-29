@@ -14,10 +14,13 @@ export class UserComponent {
 
   constructor(public af: AngularFire) {
     this.af.auth.subscribe((auth) => {
-      this.user = {
-        displayName: auth.google.displayName,
-        photoUrl: auth.google.photoURL
-      };
+      if (auth) {
+        this.user.displayName = auth.google.displayName;
+        this.user.photoUrl = auth.google.photoURL;
+      } else {
+        this.user.displayName = "Anonymous";
+        this.user.photoUrl = "";
+      }
     });
   }
 }
