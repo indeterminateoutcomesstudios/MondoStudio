@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '@angular/material';
 
 import { AuthGuard } from '../accounts/auth-guard.service';
 
+import { WelcomeComponent } from './welcome.component';
 import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
-  declarations: [ DashboardComponent ],
+  declarations: [ WelcomeComponent, DashboardComponent ],
   imports: [
+    MaterialModule.forRoot(),
     RouterModule.forRoot([
-      { path: '', component: DashboardComponent, canActivate: [ AuthGuard ] }
+      { path: '', component: WelcomeComponent },
+      { path: 'dashboard', component: DashboardComponent, canActivate: [ AuthGuard ] }
     ])
   ],
   exports: [ RouterModule ],

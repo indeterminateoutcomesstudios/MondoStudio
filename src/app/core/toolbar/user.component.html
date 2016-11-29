@@ -1,6 +1,13 @@
-<div>
-  <button type="button">
-    <img [src]="user.photoUrl" />
+<div *ngIf="user.loggedIn">
+  <button md-raised-button color="accent" [md-menu-trigger-for]="userMenu">
     <span>{{ user.displayName }}</span>
+  </button>
+  <md-menu #userMenu="mdMenu">
+    <button md-menu-item (click)="signOut()"> Logout </button>
+  </md-menu>
+</div>
+<div *ngIf="!user.loggedIn">
+  <button md-raised-button color="accent" (click)="signIn()">
+    <span>Sign in with Google</span>
   </button>
 </div>
