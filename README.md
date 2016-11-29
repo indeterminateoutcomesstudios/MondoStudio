@@ -1,4 +1,4 @@
-# MondoStudio
+# [![MondoStudio](docs/img/logo-1.png)](https://github.com/MondoStudio/MondoStudio)
 
 [![Build Status](https://travis-ci.org/MondoStudio/MondoStudio.svg?branch=master)](https://travis-ci.org/MondoStudio/MondoStudio)
 
