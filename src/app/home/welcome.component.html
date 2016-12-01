@@ -1,8 +1,14 @@
 <div id="content">
     <md-card>
         <md-card-header>
-            <md-card-title>Welcome to <strong>MondoStudio</strong></md-card-title>
-            <md-card-subtitle>Powerful RPG and Adventure Game Development Environment</md-card-subtitle>
+            <div>
+                <md-card-title>Welcome to <strong>MondoStudio</strong></md-card-title>
+                <md-card-subtitle>Powerful RPG and Adventure Game Development Environment</md-card-subtitle>
+            </div>
+            <div flex></div>
+            <div *ngIf="user.loggedIn">
+                <button md-raised-button color="primary" routerLink="/dashboard">Dashboard</button>
+            </div>
         </md-card-header>
         <img md-card-image src="/assets/img/banner.png">
         <md-card-content>

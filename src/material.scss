@@ -16,3 +16,7 @@ html, body {
     background: md-color($background, background);
     color: md-color($foreground, text);
 }
+
+[flex] {
+    flex: 1 1 auto;
+}

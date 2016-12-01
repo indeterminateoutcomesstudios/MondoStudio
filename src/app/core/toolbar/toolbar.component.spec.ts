@@ -20,6 +20,6 @@ describe('Core: Toolbar', () => {
 
     let compiled = fixture.debugElement.nativeElement;
 
-    expect(compiled.querySelector('h1').textContent).toContain('MondoStudio');
+    expect(compiled.querySelector('img').src).toContain('/assets/img/logo.svg');
   }));
 });
