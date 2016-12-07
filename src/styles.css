@@ -1,15 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~material-design-icons/iconfont/material-icons.css';
+
 body, html {
     margin: 0;
 }
 
-app-root #content {
+app-root #landing-page {
     width: 100vw;
     height: 100vh;
     display: flex;
 }
 
-#content #loading {
+#landing-page #loading {
     display: flex;
     margin: auto auto;
     width: 512px;

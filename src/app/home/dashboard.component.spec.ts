@@ -15,13 +15,12 @@ describe('Home: Dashboard', () => {
     });
   });
 
-  it(`should render a group of tabs with "Projects" and "Resources" tabs`, async(() => {
+  it(`should render a welcome message when there is no projects listed`, async(() => {
     let fixture = TestBed.createComponent(DashboardComponent);
     fixture.detectChanges();
 
     let compiled = fixture.debugElement.nativeElement;
 
-    expect(compiled.querySelector('.md-tab-header #md-tab-label-0-0').textContent).toContain('Projects');
-    expect(compiled.querySelector('.md-tab-header #md-tab-label-0-1').textContent).toContain('Resources');
+    expect(compiled.querySelector('md-card-title').textContent).toContain('Welcome to MondoStudio');
   }));
 });

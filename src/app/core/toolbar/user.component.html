@@ -1,13 +1,13 @@
-<div *ngIf="user.loggedIn">
-  <button md-raised-button color="accent" [md-menu-trigger-for]="userMenu">
-    <span>{{ user.displayName }}</span>
+<div *ngIf="auth.user.loggedIn">
+  <button md-button [md-menu-trigger-for]="userMenu">
+    <span>{{ auth.user.name }}</span>
   </button>
   <md-menu #userMenu="mdMenu">
     <button md-menu-item (click)="signOut()"> Logout </button>
   </md-menu>
 </div>
-<div *ngIf="!user.loggedIn">
-  <button md-raised-button color="accent" (click)="signIn()">
+<div *ngIf="!auth.user.loggedIn">
+  <button md-button (click)="signIn()">
     <span>Sign in with Google</span>
   </button>
 </div>

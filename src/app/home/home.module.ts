@@ -2,16 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
-import { AuthGuard } from '../accounts/auth-guard.service';
+import { AuthGuard, AuthService } from '../accounts';
 
 import { WelcomeComponent } from './welcome.component';
 import { DashboardComponent } from './dashboard.component';
+import { NewProjectDialogComponent } from './newproject.dialog.component';
 
 @NgModule({
-  declarations: [ WelcomeComponent, DashboardComponent ],
+  declarations: [ WelcomeComponent, DashboardComponent, NewProjectDialogComponent ],
+  entryComponents: [ NewProjectDialogComponent ],
   imports: [
     BrowserModule,
+    FormsModule,
     MaterialModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: WelcomeComponent },
@@ -19,6 +23,6 @@ import { DashboardComponent } from './dashboard.component';
     ])
   ],
   exports: [ RouterModule ],
-  providers: [ AuthGuard ]
+  providers: [ AuthService, AuthGuard ]
 })
 export class HomeModule { }

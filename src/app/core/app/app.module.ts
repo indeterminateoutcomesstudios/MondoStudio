@@ -7,6 +7,7 @@ import { MaterialModule } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { HomeModule } from '../../home/home.module';
 import { AccountsModule } from '../../accounts';
+import { ProjectsModule } from '../../projects';
 
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { UserComponent } from '../toolbar/user.component';
@@ -27,6 +28,7 @@ import { firebaseConfig, authConfig } from '../../../firebase-config';
     MaterialModule.forRoot(),
     HomeModule,
     AccountsModule,
+    ProjectsModule,
     AngularFireModule.initializeApp(firebaseConfig, authConfig)
   ],
   bootstrap: [ AppComponent ]
