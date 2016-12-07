@@ -14,7 +14,7 @@ describe('Core: Toolbar', () => {
     });
   });
 
-  it(`should render title in a h1 tag`, async(() => {
+  it(`renders MondoStudio SVG logo`, async(() => {
     let fixture = TestBed.createComponent(ToolbarComponent);
     fixture.detectChanges();
 

@@ -14,13 +14,13 @@ describe('App: MondoStudio', () => {
     });
   });
 
-  it('should create the app', async(() => {
+  it('creates the app', async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'MondoStudio'`, async(() => {
+  it(`sets the page title as "MondoStudio"`, async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('MondoStudio');

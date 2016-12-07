@@ -44,7 +44,7 @@ describe('Core: Toolbar: User', () => {
     });
   });
 
-  it(`should render button with a text "Sign in with Google"`, async(() => {
+  it(`renders button with a text "Sign in with Google"`, async(() => {
     let fixture = TestBed.configureTestingModule({ providers: [
       { provide: AuthService, useClass: MockAnonymousAuthService }
     ]}).createComponent(UserComponent);
@@ -55,7 +55,7 @@ describe('Core: Toolbar: User', () => {
     expect(compiled.querySelector('button').textContent).toContain('Sign in with Google');
   }));
 
-  it(`shoud render button with a text "John Doe"`, async(() => {
+  it(`renders button with a text "John Doe"`, async(() => {
     let fixture = TestBed.configureTestingModule({ providers: [
       { provide: AuthService, useClass: MockLoggedInAuthService }
     ]}).createComponent(UserComponent);

@@ -15,7 +15,7 @@ describe('Home: Dashboard', () => {
     });
   });
 
-  it(`should render a welcome message when there is no projects listed`, async(() => {
+  it(`renders a welcome message when there is no projects listed`, async(() => {
     let fixture = TestBed.createComponent(DashboardComponent);
     fixture.detectChanges();
 
