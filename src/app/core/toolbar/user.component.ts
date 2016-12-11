@@ -4,7 +4,7 @@ import { AuthService } from '../../accounts';
 
 @Component({
   selector: 'app-toolbar-user',
-  templateUrl: 'user.component.html'
+  templateUrl: './user.component.html'
 })
 export class UserComponent {
   constructor(public auth: AuthService) { }

@@ -6,7 +6,7 @@ import { NewProjectDialogComponent } from './newproject.dialog.component';
 @Component({
     selector: 'app-home',
     templateUrl: './dashboard.component.html',
-    styleUrls: ['dashboard.component.scss']
+    styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
     public name:string;

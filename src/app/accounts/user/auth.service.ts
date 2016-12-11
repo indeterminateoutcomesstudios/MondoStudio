@@ -49,6 +49,17 @@ export class AuthService {
         }).take(1);
     }
 
+    public checkFirstLogin():Observable<boolean> {
+        return this.af.auth.map(auth => {
+            
+            this.af.database.object(auth.uid).subscribe(user => {
+                console.log(user);
+            });
+
+            return false;
+        }).take(1);
+    }
+
     public login():void {
         this.af.auth.login();
     }

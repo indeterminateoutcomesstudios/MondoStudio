@@ -4,8 +4,8 @@ import { AngularFire, FirebaseAuthState } from 'angularfire2';
 
 @Component({
     selector: 'app-welcome',
-    templateUrl: 'welcome.component.html',
-    styleUrls: ['welcome.component.scss']
+    templateUrl: './welcome.component.html',
+    styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent {
   public user:{ displayName:string, photoUrl:string, loggedIn:boolean } = {
