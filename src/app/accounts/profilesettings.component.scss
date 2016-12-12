@@ -1,0 +1,26 @@
+:host {
+    .container {
+        width: 920px;
+        margin: 2em auto;
+    }
+
+    [flex] {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+
+        [grow] {
+            flex-grow: 1;
+        }
+
+        [margin] {
+            margin-left: 2em;
+            text-align: center;
+        }
+    }
+
+    md-input {
+        width: 100%;
+    }
+}

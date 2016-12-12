@@ -3,6 +3,8 @@
     <span>{{ auth.user.name }}</span>
   </button>
   <md-menu #userMenu="mdMenu">
+    <button md-menu-item routerLink="/dashboard"> Dashboard </button>
+    <button md-menu-item routerLink="/accounts/settings"> Settings </button>
     <button md-menu-item (click)="signOut()"> Logout </button>
   </md-menu>
 </div>

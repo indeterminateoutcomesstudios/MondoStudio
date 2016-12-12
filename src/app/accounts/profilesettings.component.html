@@ -1,3 +1,35 @@
 <div class="container">
-    <h1>User Profile</h1>
+    <form>
+        <md-card>
+            <md-card-title>Account Settings</md-card-title>
+            <md-card-subtitle>User profile</md-card-subtitle>
+            <md-card-content>
+                <div flex>
+                    <div grow>
+                        <div>
+                            <md-input placeholder="Name"></md-input>
+                        </div>
+                        <div>
+                            <md-input placeholder="E-mail"></md-input>
+                        </div>
+                        <div>
+                            <md-input placeholder="Username"></md-input>
+                        </div>
+                    </div>
+                    <div margin>
+                        <img src="https://thesocietypages.org/socimages/files/2009/05/nopic_192.gif" width="192">
+                        <br>
+                        <br>
+                        <a md-button target="_blank" href="https://myaccount.google.com/">Change Avatar in Google Accounts</a>
+                    </div>
+                </div>
+            </md-card-content>
+        </md-card>
+        <br>
+        <div flex>
+            <button md-raised-button color="primary">Save</button>
+            <span grow></span>
+            <button md-button color="warn">Delete account</button>
+        </div>
+    </form>
 </div>
