@@ -2,70 +2,71 @@ import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { Observable } from 'rxjs';
 
-import { User } from './user';
+import { Auth, User } from './user';
+
+import { UserService } from './user.service';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/expand';
 
 @Injectable()
 export class AuthService {
-    public user:User;
+  public auth:Auth;
 
-    constructor(public af: AngularFire) {
-        this.user = new User();
+  constructor(public af: AngularFire, public us: UserService) {
+    this.auth = new Auth();
 
-        this.user.name = 'Anonymous';
-        this.user.loggedIn = false;
+    this.auth.user = new User();
+    this.auth.loggedIn = false;
 
-        this.authenticate().subscribe(user => this.user = user);
-    }
+    this.authenticate().subscribe(auth => this.auth = auth);
+  }
 
-    private clearLoggedUser() {
-        this.user.name = 'Anonymous';
-        this.user.loggedIn = false;
-    }
+  private clearLoggedUser() {
+    this.auth.user = new User();
+    this.auth.picture = null;
+    this.auth.loggedIn = false;
+  }
 
-    private authenticate():Observable<User> {
-        return this.af.auth.map(auth => {
-            if (auth) {
-                let user = new User();
+  private authenticate():Observable<Auth> {
+    return this.retrieve();
+  }
 
-                user.name = auth.auth.providerData[0].displayName;
-                user.picture = auth.auth.providerData[0].photoURL;
-                user.loggedIn = true;
+  public retrieve():Observable<Auth> {
+    return this.af.auth.map(obj => {
+      let auth = new Auth();
+      auth.user = new User();
+      auth.user.id = obj.uid;
 
-                return user;
-            }
-            return this.user;
-        });
-    }
+      auth.picture = obj.auth.providerData[0].photoURL;
+      auth.loggedIn = true;
 
-    public checkLogin():Observable<boolean> {
-        return this.af.auth.map(auth => {
-            if (auth) {
-                return !auth.auth.isAnonymous;
-            }
-            return false;
-        }).take(1);
-    }
+      return auth;
+    }).switchMap((auth, i) => {
+      this.us.user = auth.user;
+      return this.us.retrieve().map((user) => {
+        auth.user = user;
+        return auth;
+      });
+    });
+  }
 
-    public checkFirstLogin():Observable<boolean> {
-        return this.af.auth.map(auth => {
-            
-            this.af.database.object(auth.uid).subscribe(user => {
-                console.log(user);
-            });
+  public checkLogin():Observable<boolean> {
+    return this.af.auth.map(auth => {
+      if (auth) {
+        return !auth.auth.isAnonymous;
+      }
+      return false;
+    }).take(1);
+  }
 
-            return false;
-        }).take(1);
-    }
+  public login():void {
+    this.af.auth.login();
+  }
 
-    public login():void {
-        this.af.auth.login();
-    }
-
-    public logout():void {
-        this.af.auth.logout();
-        this.clearLoggedUser();
-    }
+  public logout():void {
+    this.af.auth.logout();
+    this.clearLoggedUser();
+  }
 }

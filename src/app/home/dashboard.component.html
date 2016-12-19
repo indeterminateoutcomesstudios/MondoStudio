@@ -5,16 +5,16 @@
     <button md-raised-button color="primary" (click)="openNewProjectDialog()">Create new project</button>
   </div>
   <div class="container">
-    <md-card flex>
+    <md-card flex *ngIf="projects.length == 0">
       <md-card-title>Welcome to MondoStudio</md-card-title>
       <md-card-content>
         <p>Tools for developing great RPG and Adventures Games engaging with your players.</p>
       </md-card-content>
     </md-card>
-    <md-card flex *ngHide>
+    <md-card flex>
       <md-card-content>
         <md-list flex>
-          <md-list-item></md-list-item>
+          <md-list-item *ngFor="let project of projects">{{ project.name }}</md-list-item>
         </md-list>
       </md-card-content>
     </md-card>

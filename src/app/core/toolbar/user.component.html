@@ -1,6 +1,6 @@
-<div *ngIf="auth.user.loggedIn">
+<div *ngIf="auth.auth.loggedIn">
   <button md-button [md-menu-trigger-for]="userMenu">
-    <span>{{ auth.user.name }}</span>
+    <span>{{ auth.auth.user.name }}</span>
   </button>
   <md-menu #userMenu="mdMenu">
     <button md-menu-item routerLink="/dashboard"> Dashboard </button>
@@ -8,7 +8,7 @@
     <button md-menu-item (click)="signOut()"> Logout </button>
   </md-menu>
 </div>
-<div *ngIf="!auth.user.loggedIn">
+<div *ngIf="!auth.auth.loggedIn">
   <button md-button (click)="signIn()">
     <span>Sign in with Google</span>
   </button>

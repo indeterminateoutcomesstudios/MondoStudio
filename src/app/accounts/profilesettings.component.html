@@ -1,5 +1,5 @@
 <div class="container">
-    <form>
+    <form [formGroup]="accountSettingsForm" (ngSubmit)="save()">
         <md-card>
             <md-card-title>Account Settings</md-card-title>
             <md-card-subtitle>User profile</md-card-subtitle>
@@ -7,17 +7,14 @@
                 <div flex>
                     <div grow>
                         <div>
-                            <md-input placeholder="Name"></md-input>
+                            <md-input placeholder="Name" [(ngModel)]="auth.auth.user.name" formControlName="name" name="name" required></md-input>
                         </div>
                         <div>
-                            <md-input placeholder="E-mail"></md-input>
-                        </div>
-                        <div>
-                            <md-input placeholder="Username"></md-input>
+                            <md-input placeholder="Username" [(ngModel)]="auth.auth.user.username" formControlName="username" name="username" required></md-input>
                         </div>
                     </div>
                     <div margin>
-                        <img src="https://thesocietypages.org/socimages/files/2009/05/nopic_192.gif" width="192">
+                        <img [src]="auth.auth.picture" width="192">
                         <br>
                         <br>
                         <a md-button target="_blank" href="https://myaccount.google.com/">Change Avatar in Google Accounts</a>
@@ -27,9 +24,9 @@
         </md-card>
         <br>
         <div flex>
-            <button md-raised-button color="primary">Save</button>
+            <button md-raised-button color="primary" type="submit">Save</button>
             <span grow></span>
-            <button md-button color="warn">Delete account</button>
+            <button md-button color="warn" type="button">Delete account</button>
         </div>
     </form>
 </div>

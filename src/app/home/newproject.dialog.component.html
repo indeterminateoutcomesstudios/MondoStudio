@@ -1,10 +1,10 @@
 <h3>Create new Project</h3>
-<form>
+<form [formGroup]="newProjectForm" (ngSubmit)="save()">
     <div>
-        <md-input placeholder="Project name"></md-input>
+        <md-input placeholder="Project name" name="name" formControlName="name" [(ngModel)]="project.name"></md-input>
     </div>
     <div>
-        <md-input placeholder="Project ID"></md-input>
+        <md-input placeholder="Project ID" name="slug" formControlName="slug" [(ngModel)]="project.slug"></md-input>
     </div>
     <div class="actions">
         <button md-button (click)="dialogRef.close()" type="button">Cancel</button>

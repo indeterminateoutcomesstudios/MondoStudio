@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from '@angular/material';
 
+import { ProjectService } from './project.service';
+
 import { AuthGuard } from '../accounts/auth-guard.service';
 
 import { ProjectDashboardComponent } from './projectdashboard.component';
@@ -17,6 +19,6 @@ import { ProjectDashboardComponent } from './projectdashboard.component';
     ])
   ],
   exports: [ RouterModule ],
-  providers: [ AuthGuard ]
+  providers: [ ProjectService, AuthGuard ]
 })
 export class ProjectsModule { }

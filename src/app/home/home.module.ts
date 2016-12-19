@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthGuard, AuthService } from '../accounts';
+import { ProjectService } from '../projects/project.service';
 
 import { WelcomeComponent } from './welcome.component';
 import { DashboardComponent } from './dashboard.component';
@@ -15,7 +16,7 @@ import { NewProjectDialogComponent } from './newproject.dialog.component';
   entryComponents: [ NewProjectDialogComponent ],
   imports: [
     BrowserModule,
-    FormsModule,
+    ReactiveFormsModule,
     MaterialModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: WelcomeComponent },
@@ -23,6 +24,6 @@ import { NewProjectDialogComponent } from './newproject.dialog.component';
     ])
   ],
   exports: [ RouterModule ],
-  providers: [ AuthService, AuthGuard ]
+  providers: [ AuthService, AuthGuard, ProjectService ]
 })
 export class HomeModule { }

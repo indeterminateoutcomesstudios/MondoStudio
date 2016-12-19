@@ -1,5 +1,7 @@
+import { User } from '../accounts/user/user';
+
 export class Project {
-    user: string;
-    project: string;
-    slug: string;
+  username: string;
+  slug: string;
+  name: string;
 }

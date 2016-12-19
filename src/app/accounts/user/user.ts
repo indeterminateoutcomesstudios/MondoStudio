@@ -1,6 +1,11 @@
+export class Auth {
+  user: User;
+  loggedIn: boolean;
+  picture: string;
+}
+
 export class User {
-    name: string;
-    picture: string;
-    username: string;
-    loggedIn: boolean;
+  id: string;
+  name: string;
+  username: string;
 }
