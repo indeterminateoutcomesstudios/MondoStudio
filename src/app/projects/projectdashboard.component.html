@@ -1,1 +1,27 @@
-<h1>Project Dashboard</h1>
+<md-sidenav-layout>
+  <md-sidenav mode="side" opened="true">
+    <md-nav-list>
+      <a md-list-item [routerLink]="project.home()">
+        <md-icon class="material-icons">home</md-icon>
+        <h4 md-line>Overview</h4>
+      </a>
+      <md-divider></md-divider>
+      <a md-list-item>
+        <md-icon class="material-icons">map</md-icon>
+        <h4 md-line>Maps</h4>
+      </a>
+      <a md-list-item>
+        <md-icon class="material-icons">person</md-icon>
+        <h4 md-line>Characters</h4>
+      </a>
+      <md-divider></md-divider>
+      <a md-list-item>
+        <md-icon class="material-icons">settings</md-icon>
+        <h4 md-line>Settings</h4>
+      </a>
+    </md-nav-list>
+  </md-sidenav>
+  <div>
+    
+  </div>
+</md-sidenav-layout>

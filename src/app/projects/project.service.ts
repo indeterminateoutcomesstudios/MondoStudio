@@ -31,7 +31,11 @@ export class ProjectService {
     return this.af.database.list("/project/" + username).map(values => {
       let projects:Array<Project> = [];
       values.forEach((value, i) => {
-        projects.push(value);
+        let project = new Project();
+        project.name = value.name;
+        project.username = value.username;
+        project.slug = value.slug;
+        projects.push(project);
       });
       return projects;
     });

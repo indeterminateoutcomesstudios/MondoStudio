@@ -10,6 +10,7 @@ import { AccountsModule } from '../../accounts';
 import { ProjectsModule } from '../../projects';
 
 import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { ToolbarService } from '../toolbar/toolbar.service';
 import { UserComponent } from '../toolbar/user.component';
 import { AppComponent } from './app.component';
 
@@ -31,6 +32,7 @@ import { firebaseConfig, authConfig } from '../../../firebase-config';
     ProjectsModule,
     AngularFireModule.initializeApp(firebaseConfig, authConfig)
   ],
+  providers: [ ToolbarService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

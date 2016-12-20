@@ -1,5 +1,8 @@
 <md-toolbar color="primary">
   <img src="/assets/img/logo.svg">
+  <span *ngIf="project">
+    <button md-button [routerLink]="project.home()">{{ project.name }}</button>
+  </span>
   <span flex></span>
   <app-toolbar-user></app-toolbar-user>
 </md-toolbar>
