@@ -13,11 +13,11 @@
     </md-card>
     <md-card flex *ngIf="projects.length > 0">
       <md-card-content>
-        <md-list flex>
-          <md-list-item *ngFor="let project of projects">
-            <a [routerLink]="project.home()">{{ project.name }}</a>
-          </md-list-item>
-        </md-list>
+        <md-nav-list flex>
+          <a md-list-item *ngFor="let project of projects" [routerLink]="project.home()">
+            {{ project.name }}
+          </a>
+        </md-nav-list>
       </md-card-content>
     </md-card>
   </div>

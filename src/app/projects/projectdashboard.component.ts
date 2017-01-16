@@ -18,20 +18,28 @@ import 'rxjs/add/operator/switchMap';
 export class ProjectDashboardComponent implements OnInit, OnDestroy {
 
   public project:Project;
+  public loaded:Promise<Project>;
 
   constructor(private ps: ProjectService, private route: ActivatedRoute, private ts: ToolbarService) {
     this.project = new Project();
+    this.loaded = this.load();
     this.ts.unsetProject();
   }
 
-  ngOnInit():void {
-    this.route.params.switchMap(params => this.ps.retrieve({
+  load():Promise<Project> {
+    return new Promise<Project>((resolve, reject) => {
+      this.route.params.switchMap(params => this.ps.retrieve({
       username: params['username'],
-      project: params['project']}))
-      .subscribe(project => {
-        this.project = project;
-        this.ts.setProject(project);
-      });
+      project: params['project']})).subscribe(project => resolve(project));
+    });
+  }
+
+  ngOnInit():void {
+    this.loaded.then(project => {
+      this.project = project;
+      this.ts.setProject(project);
+      return project;
+    });
   }
 
   ngOnDestroy() {

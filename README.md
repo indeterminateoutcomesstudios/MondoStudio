@@ -14,7 +14,7 @@ is totally free to use.
 Pre-requisites:
   - node `~> 6.1.0`
   - npm `~> 3.10.7`
-  - angular-cli `~> 1.0.0-beta.22-1`
+  - angular-cli `~> 1.0.0-beta.25.5`
 
 Follow these steps to install:
 

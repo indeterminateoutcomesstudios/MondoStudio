@@ -1,0 +1,14 @@
+<div class="container">
+  <small>Maps</small>
+  <span flex></span>
+  <button md-raised-button color="primary">Create new map</button>
+</div>
+<div class="container">
+  <md-card flex *ngIf="project.maps">
+    <md-card-content>
+      <md-nav-list flex>
+        <a md-list-item *ngFor="let map of project.maps" [routerLink]="map.link()">{{ map.name }}</a>
+      </md-nav-list>
+    </md-card-content>
+  </md-card>
+</div>
