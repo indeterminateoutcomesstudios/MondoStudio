@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AngularFireModule } from 'angularfire2';
 import { HomeModule } from '../../home/home.module';
@@ -26,6 +27,7 @@ import { firebaseConfig, authConfig } from '../../../firebase-config';
     BrowserModule,
     FormsModule,
     HttpModule,
+    FlexLayoutModule.forRoot(),
     MaterialModule.forRoot(),
     HomeModule,
     AccountsModule,
