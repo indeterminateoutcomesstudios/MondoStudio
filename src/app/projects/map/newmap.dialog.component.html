@@ -1,0 +1,28 @@
+<h3>Create new Map</h3>
+<form [formGroup]="newMapForm">
+    <div fxLayout="column">
+        <md-input-container fxFlex>
+            <input md-input placeholder="Map name" name="name" formControlName="name" [(ngModel)]="map.name" />
+        </md-input-container>
+        <md-input-container fxFlex>
+            <input md-input placeholder="Map ID" name="slug" formControlName="slug" [(ngModel)]="map.slug" />
+        </md-input-container>
+        <div fxFlex>
+            <div fxLayout="row">
+                <md-input-container fxFlex>
+                    <input md-input type="number" placeholder="Width" name="width" formControlName="width" [(ngModel)]="map.width" />
+                </md-input-container>
+                <md-input-container fxFlex>
+                    <input md-input type="number" placeholder="Height" name="height" formControlName="height" [(ngModel)]="map.height" />
+                </md-input-container>
+            </div>
+        </div>
+        <div fxFlex>
+            <div fxLayout="row">
+                <span fxFlex></span>
+                <button md-button (click)="dialogRef.close()" type="button">Cancel</button>
+                <button md-raised-button color="primary" type="submit">Save</button>
+            </div>
+        </div>
+    </div>
+</form>

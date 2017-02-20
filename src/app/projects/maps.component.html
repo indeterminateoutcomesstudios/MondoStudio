@@ -1,7 +1,7 @@
 <div class="container">
   <small>Maps</small>
   <span flex></span>
-  <button md-raised-button color="primary">Create new map</button>
+  <button md-raised-button color="primary" (click)="openNewMapDialog()">Create new map</button>
 </div>
 <div class="container">
   <md-card flex *ngIf="project.maps">

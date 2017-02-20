@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, RouterState } from '@angular/router';
 import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ToolbarService } from '../core/toolbar/toolbar.service';
 import { ProjectService } from './project.service';
@@ -15,12 +16,15 @@ import { SettingsComponent } from './settings.component';
 import { MapsComponent } from './maps.component';
 
 import { MapComponent } from './map/map.component';
+import { NewMapDialogComponent } from './map/newmap.dialog.component';
 
 @NgModule({
-  declarations: [ ProjectDashboardComponent, OverviewComponent, SettingsComponent, MapsComponent, MapComponent ],
+  declarations: [ ProjectDashboardComponent, OverviewComponent, SettingsComponent, MapsComponent, MapComponent, NewMapDialogComponent ],
+  entryComponents: [ NewMapDialogComponent ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    FlexLayoutModule.forRoot(),
     MaterialModule.forRoot(),
     RouterModule.forRoot([{
       path: ':username/:project',
